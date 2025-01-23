@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\InstructorController;
+use App\Http\Controllers\backend\InstructorProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,13 @@ Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')
     Route::get('/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [InstructorController::class, 'destroy'])
     ->name('logout');
+
+    Route::get('/profile', [InstructorProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/store', [InstructorProfileController::class, 'store'])->name('profile.store');
+    Route::get('/setting', [InstructorProfileController::class, 'setting'])->name('setting');
+    Route::post('/password/setting', [InstructorProfileController::class, 'passwordSetting'])->name('passwordSetting');
+
+
 });
 
 
