@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\InstructorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,15 @@ Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [AdminController::class, 'destroy'])
+    ->name('logout');
+});
+
+
+/*  Instructor Route  */
+Route::get('/instructor/login', [InstructorController::class, 'login'])->name('instructor.login');
+Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
+    Route::get('/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard');
+    Route::post('/logout', [InstructorController::class, 'destroy'])
     ->name('logout');
 });
 
