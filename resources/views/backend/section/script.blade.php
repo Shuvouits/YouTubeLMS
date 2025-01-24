@@ -36,6 +36,21 @@
     new PerfectScrollbar(".app-container")
 </script>
 
+ <!----Photo Preview Script ----->
+
+ <script>
+    $(document).ready(function() {
+        $('#Photo').on('change', function(event) {
+            const [file] = event.target.files;
+            if (file) {
+                $('#photoPreview')
+                    .attr('src', URL.createObjectURL(file))
+                    .css('display', 'block'); // Show the image preview
+            }
+        });
+    });
+</script>
+
  <!--app JS-->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
