@@ -6,17 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ProfileService;
 use App\Http\Requests\ProfileRequest;
-
+use App\Http\Requests\ProfilePasswordUpdateRequest;
+use App\Services\PasswordUpdateService;
 
 class InstructorProfileController extends Controller
 {
 
-    protected $profileService;
+    protected $profileService, $passwordUpdateService;
 
-    public function __construct(ProfileService $profileService)
+    public function __construct(ProfileService $profileService, PasswordUpdateService $passwordUpdateService)
     {
         $this->profileService = $profileService;
-
+        $this->passwordUpdateService = $passwordUpdateService;
     }
 
     public function index()
@@ -35,5 +36,13 @@ class InstructorProfileController extends Controller
     public function setting()
     {
         return view('backend.instructor.profile.setting');
+    }
+
+    public function passwordSetting(ProfilePasswordUpdateRequest $request)
+    {
+        
+        // Pass data and files to the service
+        $this->passwordUpdateService->updatePassword($request->validated());
+        return redirect()->back()->with('success', 'Password Updated successfully');
     }
 }

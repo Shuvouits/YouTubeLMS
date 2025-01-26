@@ -23,7 +23,14 @@ Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [AdminController::class, 'destroy'])
-    ->name('logout');
+        ->name('logout');
+
+    /*  control Profile */
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/store', [ProfileController::class, 'store'])->name('profile.store');
+    Route::get('/setting', [ProfileController::class, 'setting'])->name('setting');
+    Route::post('/password/setting', [ProfileController::class, 'passwordSetting'])->name('passwordSetting');
 });
 
 
@@ -32,14 +39,12 @@ Route::get('/instructor/login', [InstructorController::class, 'login'])->name('i
 Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
     Route::get('/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [InstructorController::class, 'destroy'])
-    ->name('logout');
+        ->name('logout');
 
     Route::get('/profile', [InstructorProfileController::class, 'index'])->name('profile');
     Route::post('/profile/store', [InstructorProfileController::class, 'store'])->name('profile.store');
     Route::get('/setting', [InstructorProfileController::class, 'setting'])->name('setting');
     Route::post('/password/setting', [InstructorProfileController::class, 'passwordSetting'])->name('passwordSetting');
-
-
 });
 
 
@@ -54,4 +59,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
