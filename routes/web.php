@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 
@@ -27,10 +28,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
     /*  control Profile */
 
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::post('/profile/store', [ProfileController::class, 'store'])->name('profile.store');
-    Route::get('/setting', [ProfileController::class, 'setting'])->name('setting');
-    Route::post('/password/setting', [ProfileController::class, 'passwordSetting'])->name('passwordSetting');
+    Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/store', [AdminProfileController::class, 'store'])->name('profile.store');
+    Route::get('/setting', [AdminProfileController::class, 'setting'])->name('setting');
+    Route::post('/password/setting', [AdminProfileController::class, 'passwordSetting'])->name('passwordSetting');
 });
 
 
