@@ -85,3 +85,5 @@
     @endif
 </script>
 
+@stack('scripts')
+
