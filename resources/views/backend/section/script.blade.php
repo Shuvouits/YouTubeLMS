@@ -16,6 +16,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
 
+<script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+
 
 
  <!--Password show & hide js -->
@@ -38,6 +41,12 @@
 
 <script>
     new PerfectScrollbar(".app-container")
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
 </script>
 
  <!----Photo Preview Script ----->
