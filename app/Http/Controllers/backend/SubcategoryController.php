@@ -30,7 +30,7 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        $all_categories = Category::latest()->get();
+        $all_categories = Category::orderBy('name', 'asc')->get();
         return view('backend.admin.subcategory.create', compact('all_categories'));
     }
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-content">
 
-        @include('backend.section.breadcrumb');
+        @include('backend.section.breadcrumb', ['title'=> 'Category', 'sub_title'=> 'All-Categories']);
 
 
         <div style="display: flex; align-items:center; justify-content:space-between">

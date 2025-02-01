@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-content">
 
-        @include('backend.section.breadcrumb');
+        @include('backend.section.breadcrumb', ['title'=> 'SubCategory', 'sub_title'=> 'Insert-SubCategory']);
 
 
         <div class="card col-md-8">

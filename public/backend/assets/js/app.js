@@ -14,23 +14,36 @@ $(function() {
 		$(".mobile-toggle-menu").on("click", function() {
 			$(".wrapper").addClass("toggled")
 		}),
-		
 
 
 
-		$(".dark-mode").on("click", function() {
 
-			if($(".dark-mode-icon i").attr("class") == 'bx bx-sun') {
-				$(".dark-mode-icon i").attr("class", "bx bx-moon");
-				$("html").attr("class", "light-theme")
-			} else {
-				$(".dark-mode-icon i").attr("class", "bx bx-sun");
-				$("html").attr("class", "dark-theme")
-			}
+		$(document).ready(function () {
+            // পেজ লোড হলে localStorage থেকে থিম চেক করা
+            if (localStorage.getItem("theme") === "dark") {
+                $("html").addClass("dark-theme");
+                $(".dark-mode-icon i").attr("class", "bx bx-sun");
+            } else {
+                $("html").addClass("light-theme");
+                $(".dark-mode-icon i").attr("class", "bx bx-moon");
+            }
 
-		}), 
+            // ডার্ক মোড টগল ফাংশন
+            $(".dark-mode").on("click", function () {
+                if ($("html").hasClass("dark-theme")) {
+                    $("html").removeClass("dark-theme").addClass("light-theme");
+                    $(".dark-mode-icon i").attr("class", "bx bx-moon");
+                    localStorage.setItem("theme", "light"); // লাইট মোড সংরক্ষণ
+                } else {
+                    $("html").removeClass("light-theme").addClass("dark-theme");
+                    $(".dark-mode-icon i").attr("class", "bx bx-sun");
+                    localStorage.setItem("theme", "dark"); // ডার্ক মোড সংরক্ষণ
+                }
+            });
+        });
 
-		
+
+
 		$(".toggle-icon").click(function() {
 			$(".wrapper").hasClass("toggled") ? ($(".wrapper").removeClass("toggled"), $(".sidebar-wrapper").unbind("hover")) : ($(".wrapper").addClass("toggled"), $(".sidebar-wrapper").hover(function() {
 				$(".wrapper").addClass("sidebar-hovered")
@@ -47,18 +60,18 @@ $(function() {
 				}, 600), !1
 			})
 		}),
-		
+
 		$(function() {
 			for (var e = window.location, o = $(".metismenu li a").filter(function() {
 					return this.href == e
 				}).addClass("").parent().addClass("mm-active"); o.is("li");) o = o.parent("").addClass("mm-show").parent("").addClass("mm-active")
 		}),
-		
-		
+
+
 		$(function() {
 			$("#menu").metisMenu()
-		}), 
-		
+		}),
+
 		$(".chat-toggle-btn").on("click", function() {
 			$(".chat-wrapper").toggleClass("chat-toggled")
 		}), $(".chat-toggle-btn-mobile").on("click", function() {
@@ -74,9 +87,9 @@ $(function() {
 			$(".compose-mail-popup").show()
 		}), $(".compose-mail-close").on("click", function() {
 			$(".compose-mail-popup").hide()
-		}), 
-		
-		
+		}),
+
+
 		$(".switcher-btn").on("click", function() {
 			$(".switcher-wrapper").toggleClass("switcher-toggled")
 		}), $(".close-switcher").on("click", function() {
@@ -106,8 +119,8 @@ $(function() {
 		}), $("#headercolor8").on("click", function() {
 			$("html").addClass("color-header headercolor8"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor6 headercolor7 headercolor3")
 		})
-		
-	// sidebar colors 
+
+	// sidebar colors
 	$('#sidebarcolor1').click(theme1);
 	$('#sidebarcolor2').click(theme2);
 	$('#sidebarcolor3').click(theme3);
@@ -148,6 +161,6 @@ $(function() {
 	function theme8() {
 		$('html').attr('class', 'color-sidebar sidebarcolor8');
 	}
-	
-	
+
+
 });

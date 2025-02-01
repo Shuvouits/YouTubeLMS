@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $all_categories = Category::latest()->get();
+        $all_categories = Category::orderBy('name', 'asc')->get();
         return view('backend.admin.category.index', compact('all_categories'));
     }
 
@@ -37,7 +37,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        
+
         // Pass data and files to the service
         $this->categoryService->saveCategory($request->validated(), $request->file('image'));
         return redirect()->back()->with('success', 'Category Created successfully');
