@@ -8,10 +8,7 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SubcategoryController;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\frontend\FrontendDashboardController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -56,6 +53,11 @@ Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')
     Route::get('/setting', [InstructorProfileController::class, 'setting'])->name('setting');
     Route::post('/password/setting', [InstructorProfileController::class, 'passwordSetting'])->name('passwordSetting');
 });
+
+
+//Frontend Route
+
+Route::get('/', [FrontendDashboardController::class, 'home'])->name('frontend.home');
 
 
 

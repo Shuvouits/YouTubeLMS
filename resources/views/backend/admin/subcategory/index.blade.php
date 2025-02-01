@@ -2,21 +2,10 @@
 
 @section('content')
     <div class="page-content">
-        <!--breadcrumb-->
-        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">SubCategory</div>
-            <div class="ps-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">All SubCategory</li>
-                    </ol>
-                </nav>
-            </div>
 
-        </div>
-        <!--end breadcrumb-->
+        @include('backend.section.breadcrumb');
+
+
         <div style="display: flex; align-items:center; justify-content:space-between">
             <h6 class="mb-0 text-uppercase">All SubCategories</h6>
             <a href="{{route('admin.subcategory.create')}}" class="btn btn-primary">Add SubCategory</a>
