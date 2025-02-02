@@ -1,9 +1,20 @@
 <?php
 
+use App\Models\Category;
+
+
+/* Global Use in category  */
+
+if (!function_exists('getCategories')) {
+    function getCategories() {
+
+         return Category::with('subcategory')->get();
+         
+    }
+}
+
 
 /** set admin sidebar active */
-
-/** Set sidebar active **/
 
 if (!function_exists('setSidebar')) {
     function setSidebar(array $routes): ?String
