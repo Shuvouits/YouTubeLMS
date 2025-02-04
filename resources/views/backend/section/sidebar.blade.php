@@ -20,7 +20,7 @@
 
         </li>
 
-        <li class="{{ setSidebar(['admin.category.index', 'admin.category.edit*', 'admin.category.create', 'admin.subcategory.index',  'admin.subcategory.create', 'admin.subcategory.edit*']) }}">
+        <li class="{{ setSidebar(['admin.category*', 'admin.subcategory*']) }}">
             <a href="javascript:;" class="has-arrow">
 
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -28,12 +28,29 @@
                 <div class="menu-title">Manage Category</div>
             </a>
             <ul>
-                <li  class="{{ setSidebar(['admin.category.index', 'admin.category.edit*', 'admin.category.create']) }}">
+                <li  class="{{ setSidebar(['admin.category*']) }}">
                      <a href="{{route('admin.category.index')}}"><i class='bx bx-radio-circle'></i>All Category</a>
                 </li>
-                <li class="{{ setSidebar(['admin.subcategory.index', 'admin.subcategory.edit*', 'admin.subcategory.create']) }}" >
+                <li class="{{ setSidebar(['admin.subcategory*']) }}" >
                     <a href="{{route('admin.subcategory.index')}}"><i class='bx bx-radio-circle'></i>All SubCategory</a>
                 </li>
+
+            </ul>
+        </li>
+
+        <li class="{{ setSidebar(['admin.slider*']) }}">
+            <a href="javascript:;" class="has-arrow">
+
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Application Settings</div>
+            </a>
+            <ul>
+
+                <li class="{{ setSidebar(['admin.slider*']) }}">
+                    <a href="{{route('admin.slider.index')}}"><i class='bx bx-radio-circle'></i>Manage Slider</a>
+                </li>
+
 
             </ul>
         </li>
