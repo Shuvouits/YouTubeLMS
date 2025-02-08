@@ -15,6 +15,8 @@
     <!--START HEADER AREA-->
      @include('frontend.section.header')
 
+     @yield('content')
+
     <!--START HERO AREA-->
 
     <!--END HERO AREA-->

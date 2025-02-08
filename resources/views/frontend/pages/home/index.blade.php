@@ -2,5 +2,7 @@
 
 @section('content')
 
+@include('frontend.section.hero')
+
 
 @endsection
