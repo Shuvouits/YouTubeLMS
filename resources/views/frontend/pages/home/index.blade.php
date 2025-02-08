@@ -4,5 +4,7 @@
 
 @include('frontend.section.hero')
 
+@include('frontend.section.feature')
+
 
 @endsection

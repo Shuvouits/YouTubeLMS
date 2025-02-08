@@ -51,9 +51,16 @@
                     <a href="{{route('admin.slider.index')}}"><i class='bx bx-radio-circle'></i>Manage Slider</a>
                 </li>
 
+                <li class="{{ setSidebar(['admin.info*']) }}">
+                    <a href="{{route('admin.info.index')}}"><i class='bx bx-radio-circle'></i>Manage Info</a>
+                </li>
+
 
             </ul>
         </li>
+
+
+
 
 
     </ul>

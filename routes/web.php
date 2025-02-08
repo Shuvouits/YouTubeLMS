@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\InfoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
@@ -41,6 +42,9 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     /* Control Slider */
     Route::resource('slider', SliderController::class);
 
+    /* Mange Info */
+    Route::resource('info', InfoController::class);
+
 
 
 });
@@ -48,6 +52,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
 /*  Instructor Route  */
 Route::get('/instructor/login', [InstructorController::class, 'login'])->name('instructor.login');
+Route::get('/instructor/register', [InstructorController::class, 'register'])->name('instructor.register');
 Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
     Route::get('/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [InstructorController::class, 'destroy'])
