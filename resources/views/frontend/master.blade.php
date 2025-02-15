@@ -17,13 +17,6 @@
 
      @yield('content')
 
-    <!--START HERO AREA-->
-
-    <!--END HERO AREA-->
-
-    <!--START FEATURE AREA-->
-
-    <!--END FEATURE AREA-->
 
     <!--START CATEGORY AREA-->
 

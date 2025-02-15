@@ -6,5 +6,7 @@
 
 @include('frontend.section.feature')
 
+@include('frontend.section.category')
+
 
 @endsection
