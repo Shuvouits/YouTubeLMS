@@ -38,6 +38,23 @@
             </ul>
         </li>
 
+        <li  class="{{ setSidebar(['admin.instructor.index', 'admin.instructor.active']) }}">
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Manage Instructor</div>
+            </a>
+            <ul>
+                <li class="{{ setSidebar(['admin.instructor.index']) }}">
+                    <a href="{{route('admin.instructor.index')}}"><i class='bx bx-radio-circle'></i>All Instructor</a>
+                </li>
+                <li class="{{ setSidebar(['admin.instructor.active']) }}">
+                    <a href="{{route('admin.instructor.active')}}"><i class='bx bx-radio-circle'></i>Active Instructor</a>
+                </li>
+
+            </ul>
+        </li>
+
         <li class="{{ setSidebar(['admin.slider*']) }}">
             <a href="javascript:;" class="has-arrow">
 

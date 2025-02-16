@@ -12,13 +12,15 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="{{route('admin.dashboard')}}">
+            <a href="{{route('instructor.dashboard')}}">
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
 
         </li>
+
+        @if(isApprovedUser())
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -43,6 +45,8 @@
                 </li>
             </ul>
         </li>
+
+        @endif
 
 
     </ul>

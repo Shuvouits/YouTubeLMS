@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\InfoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\InstructorController;
@@ -44,6 +45,13 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
     /* Mange Info */
     Route::resource('info', InfoController::class);
+
+     /* control instructor  */
+    Route::resource('instructor', AdminInstructorController::class);
+    Route::post('/update-status', [AdminInstructorController::class, 'updateStatus'])->name('instructor.status');
+    Route::get('/instructor-active-list', [AdminInstructorController::class, 'instructorActive'])->name('instructor.active');
+
+
 
 
 
