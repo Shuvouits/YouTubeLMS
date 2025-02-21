@@ -7,13 +7,13 @@
 <script src="{{ asset('backend/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
 
 
-<script src="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<script src="{{asset('backend/assets/plugins/chartjs/js/chart.js')}}"></script>
-<script src="{{asset('backend/assets/js/index.js')}}"></script>
+<script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+<script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
+<script src="{{ asset('backend/assets/js/index.js') }}"></script>
 
-<script src="{{asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-	<script src="{{asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+<script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 
 <!----Sweet Alert---->
 
@@ -21,23 +21,23 @@
 
 
 
- <!--Password show & hide js -->
- <script>
-     $(document).ready(function() {
-         $("#show_hide_password a").on('click', function(event) {
-             event.preventDefault();
-             if ($('#show_hide_password input').attr("type") == "text") {
-                 $('#show_hide_password input').attr('type', 'password');
-                 $('#show_hide_password i').addClass("bx-hide");
-                 $('#show_hide_password i').removeClass("bx-show");
-             } else if ($('#show_hide_password input').attr("type") == "password") {
-                 $('#show_hide_password input').attr('type', 'text');
-                 $('#show_hide_password i').removeClass("bx-hide");
-                 $('#show_hide_password i').addClass("bx-show");
-             }
-         });
-     });
- </script>
+<!--Password show & hide js -->
+<script>
+    $(document).ready(function() {
+        $("#show_hide_password a").on('click', function(event) {
+            event.preventDefault();
+            if ($('#show_hide_password input').attr("type") == "text") {
+                $('#show_hide_password input').attr('type', 'password');
+                $('#show_hide_password i').addClass("bx-hide");
+                $('#show_hide_password i').removeClass("bx-show");
+            } else if ($('#show_hide_password input').attr("type") == "password") {
+                $('#show_hide_password input').attr('type', 'text');
+                $('#show_hide_password i').removeClass("bx-hide");
+                $('#show_hide_password i').addClass("bx-show");
+            }
+        });
+    });
+</script>
 
 <script>
     new PerfectScrollbar(".app-container")
@@ -47,40 +47,55 @@
 <!----Photo Preview Script---->
 
 <script>
-    $(document).ready(function(){
-        $('#Photo').on('change', function(event){
+    $(document).ready(function() {
+        $('#Photo').on('change', function(event) {
             const [file] = event.target.files;
 
-            if(file){
+            if (file) {
                 $('#photoPreview')
-                   .attr('src', URL.createObjectURL(file))
-                   .css('display', 'block'); //Show the image preview
+                    .attr('src', URL.createObjectURL(file))
+                    .css('display', 'block'); //Show the image preview
             }
         });
     });
 </script>
 
+<!---Flora editor--->
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'>
+</script>
 
-	<script>
-		$(document).ready(function() {
-			$('#example').DataTable();
-		  } );
-	</script>
-	<script>
-		$(document).ready(function() {
-			var table = $('#example2').DataTable( {
-				lengthChange: false,
-				buttons: [ 'copy', 'excel', 'pdf', 'print']
-			} );
-
-			table.buttons().container()
-				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
-		} );
-	</script>
+<script>
+    // Initialize Froala Editor with a fixed height
+    new FroalaEditor('.editor', {
+        height: 200 // Set height to 200px
+    });
+</script>
 
 
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
 
- <!--app JS-->
+
+<script>
+    $(document).ready(function() {
+        var table = $('#example2').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'print']
+        });
+
+        table.buttons().container()
+            .appendTo('#example2_wrapper .col-md-6:eq(0)');
+    });
+</script>
+
+
+
+
+
+<!--app JS-->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
 <!----Sweet alert toast script--->
@@ -110,5 +125,8 @@
         });
     @endif
 </script>
+
+
+
 
 @stack('scripts')

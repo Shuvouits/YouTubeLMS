@@ -22,27 +22,19 @@
 
         @if(isApprovedUser())
 
-        <li>
+       
+
+        <li class="{{ setSidebar(['instructor.course*', 'instructor.course-section*']) }}">
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Application</div>
+                <div class="menu-title">Manage Courses</div>
             </a>
             <ul>
-                <li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>Email</a>
+                <li class="{{ setSidebar(['instructor.course*', 'instructor.course-section']) }}">
+                    <a href="{{route('instructor.course.index')}}"><i class='bx bx-radio-circle'></i>All Course</a>
                 </li>
-                <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Chat Box</a>
-                </li>
-                <li> <a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>File Manager</a>
-                </li>
-                <li> <a href="app-contact-list.html"><i class='bx bx-radio-circle'></i>Contatcs</a>
-                </li>
-                <li> <a href="app-to-do.html"><i class='bx bx-radio-circle'></i>Todo List</a>
-                </li>
-                <li> <a href="app-invoice.html"><i class='bx bx-radio-circle'></i>Invoice</a>
-                </li>
-                <li> <a href="app-fullcalender.html"><i class='bx bx-radio-circle'></i>Calendar</a>
-                </li>
+
             </ul>
         </li>
 
