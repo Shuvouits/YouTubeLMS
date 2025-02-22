@@ -21,12 +21,12 @@ class CourseService
         return $this->courseRepository->createCourse($data, $photo);
     }
 
-    /*
+
 
     public function createCourseGoals($courseId, array $goals)
     {
         return $this->courseRepository->createCourseGoals($courseId, $goals);
-    }  */
+    }
 
 
     public function updateCourse(array $data, $photo = null,  $id)
@@ -36,10 +36,10 @@ class CourseService
 
     }
 
-    /*
+
 
     public function updateCourseGoals($courseId, array $goals)
     {
         return $this->courseRepository->updateCourseGoals($courseId, $goals);
-    }  */
+    }
 }

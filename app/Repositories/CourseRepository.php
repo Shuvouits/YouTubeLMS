@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Course;
-
+use App\Models\CourseGoal;
 use App\Traits\FileUploadTrait; // Import the FileUploadTrait
 
 class CourseRepository
@@ -17,22 +17,19 @@ class CourseRepository
     {
        $course = new Course();
 
-        // Remove 'course_goals' from the data
-       //unset($data['course_goals']);
+       // Remove 'course_goals' from the data
+       unset($data['course_goals']);
 
         // Handle file uploads manually
         if ($photo) {
             $data['course_image'] = $this->uploadFile($photo, 'course', $course->course_image);
         }
 
-
-
-
          return Course::create($data);
 
     }
 
-    /*
+
 
     public function createCourseGoals($courseId, array $goals){
         foreach ($goals as $goal) {
@@ -45,26 +42,24 @@ class CourseRepository
         }
     }
 
-    */
 
 
 
 
 
 
-    public function updateCourse($data, $photo, $video, $id)
+
+    public function updateCourse($data, $photo, $id)
     {
        $course = Course::find($id);
 
         // Remove 'course_goals' from the data
-       // unset($data['course_goals']);
+        unset($data['course_goals']);
 
         // Handle file uploads manually
         if ($photo) {
             $data['course_image'] = $this->uploadFile($photo, 'course', $course->course_image);
         }
-
-       
 
          $course->update($data);
 
@@ -73,7 +68,7 @@ class CourseRepository
 
     }
 
-    /*
+
 
     public function updateCourseGoals($courseId, array $goals){
 
@@ -87,7 +82,7 @@ class CourseRepository
                 ]);
             }
         }
-    }    */
+    }
 }
 
 

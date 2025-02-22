@@ -42,6 +42,8 @@ class CategoryController extends Controller
         // Pass data and files to the service
         $this->categoryService->saveCategory($request->validated(), $request->file('image'));
         return redirect()->back()->with('success', 'Category Created successfully');
+
+         
     }
 
 

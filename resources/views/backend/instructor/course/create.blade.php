@@ -186,32 +186,24 @@
 
 
 
-                        <div class="d-flex align-items-center gap-3 mt-3 ">
+                        <div class="d-flex align-items-center gap-3 mt-3">
                             <div class="form-check form-check-success">
-                                <input class="form-check-input" type="checkbox" value="bestseller" id="flexCheckSuccess"
-                                    style="cursor: pointer">
-                                <label class="form-check-label" for="flexCheckSuccess">
-                                    bestseller
-                                </label>
+                                <input type="hidden" name="bestseller" value="no">
+                                <input class="form-check-input" type="checkbox" id="flexCheckSuccess" style="cursor: pointer">
+                                <label class="form-check-label" for="flexCheckSuccess">bestseller</label>
                             </div>
+
                             <div class="form-check form-check-danger">
-                                <input class="form-check-input" type="checkbox" value="featured" id="flexCheckDanger"
-                                    style="cursor: pointer">
-                                <label class="form-check-label" for="flexCheckDanger">
-                                    featured
-                                </label>
+                                <input type="hidden" name="featured" value="no">
+                                <input class="form-check-input" type="checkbox" id="flexCheckDanger" style="cursor: pointer">
+                                <label class="form-check-label" for="flexCheckDanger">featured</label>
                             </div>
+
                             <div class="form-check form-check-warning">
-                                <input class="form-check-input" type="checkbox" value="highestrated"
-                                    id="flexCheckWarning" style="cursor: pointer">
-                                <label class="form-check-label" for="flexCheckWarning">
-                                    highestrated
-                                </label>
+                                <input type="hidden" name="highestrated" value="no">
+                                <input class="form-check-input" type="checkbox" id="flexCheckWarning" style="cursor: pointer">
+                                <label class="form-check-label" for="flexCheckWarning">highestrated</label>
                             </div>
-
-
-
-
                         </div>
 
 
@@ -271,6 +263,17 @@
             const match = url.match(regex);
             return match ? match[1] : null;
         }
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".form-check-input").forEach(function(checkbox) {
+            checkbox.addEventListener("change", function() {
+                let hiddenInput = this.previousElementSibling; // Hidden input
+                hiddenInput.value = this.checked ? "yes" : "no"; // Set value based on checked state
+            });
+        });
+    });
     </script>
 
     <script>

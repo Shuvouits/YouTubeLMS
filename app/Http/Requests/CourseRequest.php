@@ -42,7 +42,7 @@ class CourseRequest extends FormRequest
             'bestseller' => 'nullable|in:yes,no',
             'featured' => 'nullable|in:yes,no',
             'highestrated' => 'nullable|in:yes,no',
-           // 'course_goals.*' => 'nullable'
+            'course_goals.*' => 'nullable'
 
         ];
     }
