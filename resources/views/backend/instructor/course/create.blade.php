@@ -189,19 +189,22 @@
                         <div class="d-flex align-items-center gap-3 mt-3">
                             <div class="form-check form-check-success">
                                 <input type="hidden" name="bestseller" value="no">
-                                <input class="form-check-input" type="checkbox" id="flexCheckSuccess" style="cursor: pointer">
+                                <input class="form-check-input" type="checkbox" id="flexCheckSuccess"
+                                    style="cursor: pointer">
                                 <label class="form-check-label" for="flexCheckSuccess">bestseller</label>
                             </div>
 
                             <div class="form-check form-check-danger">
                                 <input type="hidden" name="featured" value="no">
-                                <input class="form-check-input" type="checkbox" id="flexCheckDanger" style="cursor: pointer">
+                                <input class="form-check-input" type="checkbox" id="flexCheckDanger"
+                                    style="cursor: pointer">
                                 <label class="form-check-label" for="flexCheckDanger">featured</label>
                             </div>
 
                             <div class="form-check form-check-warning">
                                 <input type="hidden" name="highestrated" value="no">
-                                <input class="form-check-input" type="checkbox" id="flexCheckWarning" style="cursor: pointer">
+                                <input class="form-check-input" type="checkbox" id="flexCheckWarning"
+                                    style="cursor: pointer">
                                 <label class="form-check-label" for="flexCheckWarning">highestrated</label>
                             </div>
                         </div>
@@ -259,21 +262,22 @@
         // Function to extract YouTube video ID from URL
         function extractYouTubeID(url) {
             const regex =
-            /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+                /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
             const match = url.match(regex);
             return match ? match[1] : null;
         }
     </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll(".form-check-input").forEach(function(checkbox) {
-            checkbox.addEventListener("change", function() {
-                let hiddenInput = this.previousElementSibling; // Hidden input
-                hiddenInput.value = this.checked ? "yes" : "no"; // Set value based on checked state
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".form-check-input").forEach(function(checkbox) {
+                checkbox.addEventListener("change", function() {
+                    let hiddenInput = this.previousElementSibling; // Hidden input
+                    hiddenInput.value = this.checked ? "yes" :
+                    "no"; // Set value based on checked state
+                });
             });
         });
-    });
     </script>
 
     <script>
@@ -285,5 +289,4 @@
     </script>
 
     <script src="{{ asset('customjs/instructor/course.js') }}"></script>
-
 @endpush

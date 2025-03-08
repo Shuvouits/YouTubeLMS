@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Course;
+use App\Models\CourseSection;
 use Illuminate\Http\Request;
 
 class CourseSectionController extends Controller
@@ -20,7 +23,9 @@ class CourseSectionController extends Controller
      */
     public function create()
     {
-        //
+        $all_categories = Category::all();
+
+        return view('backend.instructor.course.create', compact('all_categories'));
     }
 
     /**
@@ -28,7 +33,16 @@ class CourseSectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'course_id' => 'required|exists:courses,id',
+            'section_title' => 'required|string|max:255',
+        ]);
+
+        // Store the data in the database
+        CourseSection::create($validateData);
+
+
+        return redirect()->back()->with('success', 'New section added successfully');
     }
 
     /**
@@ -36,7 +50,12 @@ class CourseSectionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $course = Course::find($id);
+
+        $course_wise_lecture = CourseSection::with('lecture')->where('course_id', $id)->get();
+
+
+        return view('backend.instructor.course-section.index', compact('course',  'course_wise_lecture'));
     }
 
     /**
@@ -60,6 +79,11 @@ class CourseSectionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $section = CourseSection::with('lecture')->findOrFail($id);
+
+
+        $section->delete();
+
+        return redirect()->back()->with('success', 'Data deleted successfully.');
     }
 }

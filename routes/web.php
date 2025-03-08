@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
+use App\Http\Controllers\LectureController;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -75,7 +76,11 @@ Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')
 
     Route::resource('course', CourseController::class);
     Route::get('/get-subcategories/{categoryId}', [CategoryController::class, 'getSubcategories']);
+
     Route::resource('course-section', CourseSectionController::class);
+
+    Route::resource('lecture', LectureController::class);
+
 });
 
 
