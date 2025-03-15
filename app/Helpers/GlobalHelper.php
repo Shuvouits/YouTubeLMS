@@ -31,6 +31,13 @@ if (!function_exists('getCategories')) {
 }
 
 
+if (!function_exists('getCourseCategories')) {
+    function getCourseCategories() {
+        return Category::with('course', 'course.user', 'course.course_goal')->get();
+    }
+}
+
+
 /** set admin sidebar active */
 
 if (!function_exists('setSidebar')) {

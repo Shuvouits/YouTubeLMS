@@ -60,10 +60,19 @@
                                         </div><!-- end card-image -->
                                         <div class="card-body">
                                             <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                                            <h5 class="card-title"><a href="course-details.html">The Business
-                                                    Intelligence
-                                                    Analyst Course 2021</a></h5>
-                                            <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
+
+                                            <h5 class="card-title">
+                                                <a href="course-details.html">
+                                                    {{ \Illuminate\Support\Str::limit($course->course_name, 50) }}
+                                                </a>
+                                            </h5>
+                                            
+                                            <p class="card-text">
+                                                <a
+                                                    href="#">
+                                                    {{ $course['user']['name'] }}
+                                                </a>
+                                            </p>
                                             <div class="rating-wrap d-flex align-items-center py-2">
                                                 <div class="review-stars">
                                                     <span class="rating-number">4.4</span>
@@ -76,8 +85,12 @@
                                                 <span class="rating-total pl-1">(20,230)</span>
                                             </div><!-- end rating-wrap -->
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="card-price text-black font-weight-bold">12.99 <span
-                                                        class="before-price font-weight-medium">129.99</span></p>
+
+                                                <p class="card-price text-black font-weight-bold">
+                                                    ${{ $course->discount_price }} <span
+                                                        class="before-price font-weight-medium">{{ $course->selling_price }}</span>
+                                                </p>
+
                                                 <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
                                                     title="Add to Wishlist"><i class="la la-heart-o"></i></div>
                                             </div>
