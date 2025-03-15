@@ -18,10 +18,6 @@
      @yield('content')
 
 
-    <!--START CATEGORY AREA-->
-
-    <!--END CATEGORY AREA-->
-
     <!--START COURSE First AREA-->
 
 

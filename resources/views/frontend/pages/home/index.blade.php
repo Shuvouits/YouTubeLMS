@@ -8,5 +8,7 @@
 
 @include('frontend.section.category')
 
+@include('frontend.section.course-area-first')
+
 
 @endsection
