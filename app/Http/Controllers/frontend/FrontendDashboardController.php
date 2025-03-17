@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Course;
 use App\Models\InfoBox;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -20,5 +21,12 @@ class FrontendDashboardController extends Controller
         $course_category = Category::with('course', 'course.user', 'course.course_goal')->get();
 
         return view('frontend.pages.home.index', compact('all_sliders', 'all_info', 'all_categories', 'categories', 'course_category'));
+    }
+
+    public function view($slug){
+
+        $course = Course::where('course_name_slug', $slug)->with('category', 'subcategory', 'user')->first();
+        return view('frontend.pages.course-details.index', compact('course'));
+
     }
 }

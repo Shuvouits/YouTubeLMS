@@ -67,6 +67,7 @@
 
 
    <!---footer-area--->
+   @include('frontend.section.footer')
 
 
     <!-- start scroll top -->
