@@ -43,7 +43,11 @@ class FrontendDashboardController extends Controller
 
         $all_category = Category::orderBy('name', 'asc')->get();
 
+        //more course instructor
 
-        return view('frontend.pages.course-details.index', compact('course', 'total_lecture', 'course_content', 'similarCourses', 'all_category'));
+        $more_course_instructor = Course::where('instructor_id', $course->instructor_id)->where('id', '!=', $course->id)->with('user')->get();
+
+
+        return view('frontend.pages.course-details.index', compact('course', 'total_lecture', 'course_content', 'similarCourses', 'all_category', 'more_course_instructor'));
     }
 }
