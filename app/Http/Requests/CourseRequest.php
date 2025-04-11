@@ -33,6 +33,7 @@ class CourseRequest extends FormRequest
             'description' => 'required|string',
             'video_url' => 'required|url',
             'label' => 'nullable|string|max:100',
+            'duration' => 'nullable',
 
             'resources' => 'nullable|string|max:255',
             'certificate' => 'nullable|string|max:100',

@@ -24,9 +24,12 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->string('video_url')->nullable();
             $table->string('label')->nullable();
-           
+
             $table->string('resources')->nullable();
             $table->string('certificate')->nullable();
+
+            $table->decimal('duration', 8, 2)->nullable();
+
 
             $table->integer('selling_price')->nullable();
             $table->integer('discount_price')->nullable();

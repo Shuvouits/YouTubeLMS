@@ -166,6 +166,14 @@
                                 placeholder="Enter discount price" value="{{ old('discount_price') }}" />
                         </div>
 
+
+                        <div class="col-md-6">
+                            <label for="duration" class="form-label">Course Duration (in hours)</label>
+                            <input type="number" step="0.01" class="form-control" name="duration" id="duration"
+                                placeholder="Enter Course Duration" value="{{ old('duration') }}" />
+                        </div>
+
+
                         <div class="col-md-12">
                             <label for="prerequisites" class="form-label">Course Prerequisites</label>
                             <textarea class="form-control editor" name="prerequisites" id="prerequisites"> {{ old('prerequisites') }}</textarea>
