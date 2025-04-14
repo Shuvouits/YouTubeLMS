@@ -5,21 +5,22 @@
 
         <ul class="generic-list-item generic-list-item-flash">
             <li class="d-flex align-items-center justify-content-between"><span><i
-                        class="la la-clock mr-2 text-color"></i>Duration</span> 10 hours</li>
+                        class="la la-clock mr-2 text-color"></i>Duration</span> {{$total_lecture_duration}} hours</li>
             <li class="d-flex align-items-center justify-content-between"><span><i
-                        class="la la-play-circle-o mr-2 text-color"></i>Lectures</span> 30
+                        class="la la-play-circle-o mr-2 text-color"></i>Lectures</span> {{$total_lecture}}
             </li>
             <li class="d-flex align-items-center justify-content-between"><span><i
-                        class="la la-file-text-o mr-2 text-color"></i>Resources</span> 140</li>
+                        class="la la-file-text-o mr-2 text-color"></i>Resources</span> {{$course->resources}}</li>
 
 
             <li class="d-flex align-items-center justify-content-between"><span><i
                         class="la la-language mr-2 text-color"></i>Language</span> English
             </li>
             <li class="d-flex align-items-center justify-content-between"><span><i
-                        class="la la-lightbulb mr-2 text-color"></i>Skill level</span> <sapn style="text-transform: capitalize">{{$course->label}}</sapn></li>
+                        class="la la-lightbulb mr-2 text-color"></i>Skill level</span>
+                        <sapn style="text-transform: capitalize">{{$course->label}}</sapn></li>
 
-                      
+
             <li class="d-flex align-items-center justify-content-between"><span><i
                         class="la la-users mr-2 text-color"></i>Students</span> 15</li>
             <li class="d-flex align-items-center justify-content-between"><span><i

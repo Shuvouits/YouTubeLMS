@@ -36,14 +36,14 @@
                 </h5>
 
                 <p class="card-text">
-                    <a href="{{ route('instructor', [$course['user']['name'], $course['user']['id']]) }}">
+                    <a href="#">
                         {{ $course['user']['name'] }}
                     </a>
                 </p>
 
                 <div class="rating-wrap d-flex align-items-center py-2">
                     <div class="review-stars">
-                        <span class="rating-number">{{ number_format($averageRating, 1) }}</span>
+                        <span class="rating-number">3</span>
 
                     </div>
                     <span class="rating-total pl-1">(10 ratings)</span>
@@ -58,7 +58,7 @@
                     <div class="icon-element icon-element-sm shadow-sm cursor-pointer wishlist-icon"
                         title="Add to Wishlist" data-course-id="{{ $course->id }}">
 
-                      
+
 
 
                     </div>

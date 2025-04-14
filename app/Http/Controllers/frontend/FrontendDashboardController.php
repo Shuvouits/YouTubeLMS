@@ -47,7 +47,18 @@ class FrontendDashboardController extends Controller
 
         $more_course_instructor = Course::where('instructor_id', $course->instructor_id)->where('id', '!=', $course->id)->with('user')->get();
 
+        $total_lecture = CourseLecture::where('course_id', $course->id)->count();
 
-        return view('frontend.pages.course-details.index', compact('course', 'total_lecture', 'course_content', 'similarCourses', 'all_category', 'more_course_instructor'));
+
+        $total_minutes = CourseLecture::where('course_id', $course->id)->sum('video_duration');
+
+        $hours = floor($total_minutes / 60);
+        $minutes = floor($total_minutes % 60);
+        $seconds = round(($total_minutes - floor($total_minutes)) * 60);
+
+        $total_lecture_duration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+
+
+        return view('frontend.pages.course-details.index', compact('course', 'total_lecture', 'course_content', 'similarCourses', 'all_category', 'more_course_instructor', 'total_minutes', 'total_lecture_duration'));
     }
 }

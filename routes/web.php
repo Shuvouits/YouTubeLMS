@@ -16,9 +16,12 @@ use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\LectureController;
 
+
+
+/*
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); */
 
 
 
