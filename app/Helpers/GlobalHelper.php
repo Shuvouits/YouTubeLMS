@@ -51,3 +51,17 @@ if (!function_exists('setSidebar')) {
         return null;
     }
 }
+
+
+/** for user Dashboard only */
+if(!function_exists('setSidebarActive')){
+    function setSidebarActive(array $routes) : ?String
+    {
+        foreach($routes as $route){
+            if(request()->routeIs($route)){
+                return 'page-active';
+            }
+        }
+        return null;
+    }
+}

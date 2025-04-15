@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
+use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\LectureController;
 
@@ -83,6 +84,18 @@ Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')
     Route::resource('course-section', CourseSectionController::class);
 
     Route::resource('lecture', LectureController::class);
+
+});
+
+
+//user Route
+
+Route::middleware(['auth', 'verified', 'role:user'])->prefix('user')->name('user.')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::post('/logout', [UserController::class, 'destroy'])
+        ->name('logout');
+
+
 
 });
 
