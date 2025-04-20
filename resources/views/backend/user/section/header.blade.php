@@ -33,7 +33,7 @@
                                                 <div class="shop-cart-btn">
                                                     <div class="avatar-xs">
                                                         <img class="rounded-full img-fluid"
-                                                            src="{{asset(auth()->user()->photo)}}" alt="Avatar image">
+                                                            src="{{asset(auth()->user()->photo)}}" alt="Avatar image" style="">
                                                     </div>
                                                     <span class="dot-status bg-1"></span>
                                                 </div>

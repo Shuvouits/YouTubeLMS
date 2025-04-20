@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\UserProfileController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\LectureController;
 
@@ -27,6 +28,7 @@ Route::get('/dashboard', function () {
 
 
 /* Admin Route   */
+
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 
 
@@ -53,15 +55,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     /* Mange Info */
     Route::resource('info', InfoController::class);
 
-     /* control instructor  */
+    /* control instructor  */
     Route::resource('instructor', AdminInstructorController::class);
     Route::post('/update-status', [AdminInstructorController::class, 'updateStatus'])->name('instructor.status');
     Route::get('/instructor-active-list', [AdminInstructorController::class, 'instructorActive'])->name('instructor.active');
-
-
-
-
-
 });
 
 
@@ -84,7 +81,6 @@ Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')
     Route::resource('course-section', CourseSectionController::class);
 
     Route::resource('lecture', LectureController::class);
-
 });
 
 
@@ -95,8 +91,12 @@ Route::middleware(['auth', 'verified', 'role:user'])->prefix('user')->name('user
     Route::post('/logout', [UserController::class, 'destroy'])
         ->name('logout');
 
+    //Profile
 
-
+    Route::get('/profile', [UserProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/store', [UserProfileController::class, 'store'])->name('profile.store');
+    Route::get('/setting', [UserProfileController::class, 'setting'])->name('setting');
+    Route::post('/password/setting', [UserProfileController::class, 'passwordSetting'])->name('passwordSetting');
 });
 
 
@@ -111,10 +111,6 @@ Route::get('/course-details/{slug}', [FrontendDashboardController::class, 'view'
 
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 
 require __DIR__ . '/auth.php';
