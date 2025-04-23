@@ -32,7 +32,8 @@
                                     <div class="card card-item card-preview"
                                         data-tooltip-content="#{{ $course->course_name_slug }}">
                                         <div class="card-image">
-                                            <a href="{{ route('course-details', $course->course_name_slug) }}" class="d-block">
+                                            <a href="{{ route('course-details', $course->course_name_slug) }}"
+                                                class="d-block">
 
                                                 <img class="card-img-top lazy" width="240" height="240"
                                                     src="{{ asset($course->course_image) }}"
@@ -68,8 +69,7 @@
                                             </h5>
 
                                             <p class="card-text">
-                                                <a
-                                                    href="#">
+                                                <a href="#">
                                                     {{ $course['user']['name'] }}
                                                 </a>
                                             </p>
@@ -91,8 +91,35 @@
                                                         class="before-price font-weight-medium">{{ $course->selling_price }}</span>
                                                 </p>
 
-                                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer"
-                                                    title="Add to Wishlist"><i class="la la-heart-o"></i></div>
+
+                                                <div class="icon-element icon-element-sm shadow-sm cursor-pointer wishlist-icon"
+                                                    title="Add to Wishlist" data-course-id="{{ $course->id }}">
+
+                                                    <?php
+                                                    // Check if the user is authenticated
+                                                    if (auth()->check()) {
+                                                        $user_id = auth()->user()->id;
+
+                                                        // Check if the course is in the wishlist
+                                                        $isWishlisted = \App\Models\Wishlist::where('user_id', $user_id)->where('course_id', $course->id)->first();
+                                                    } else {
+                                                        $isWishlisted = null; // Default value for non-authenticated users
+                                                    }
+                                                    ?>
+
+                                                    @if ($isWishlisted)
+                                                        <i class="la la-heart"></i>
+                                                    @else
+                                                        <i class="la la-heart-o"></i>
+                                                    @endif
+
+
+
+                                                </div>
+
+
+
+
                                             </div>
                                         </div><!-- end card-body -->
                                     </div><!-- end card -->

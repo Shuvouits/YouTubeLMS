@@ -16,6 +16,7 @@ use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserProfileController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
+use App\Http\Controllers\frontend\WishlistController;
 use App\Http\Controllers\LectureController;
 
 
@@ -104,6 +105,11 @@ Route::middleware(['auth', 'verified', 'role:user'])->prefix('user')->name('user
 
 Route::get('/', [FrontendDashboardController::class, 'home'])->name('frontend.home');
 Route::get('/course-details/{slug}', [FrontendDashboardController::class, 'view'])->name('course-details');
+
+/* wishlist controller  */
+
+Route::get('/wishlist/all', [WishlistController::class, 'allWishlist']);
+Route::post('/wishlist/add', [WishlistController::class, 'addToWishlist']);
 
 
 
