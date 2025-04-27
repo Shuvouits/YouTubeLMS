@@ -98,6 +98,12 @@ Route::middleware(['auth', 'verified', 'role:user'])->prefix('user')->name('user
     Route::post('/profile/store', [UserProfileController::class, 'store'])->name('profile.store');
     Route::get('/setting', [UserProfileController::class, 'setting'])->name('setting');
     Route::post('/password/setting', [UserProfileController::class, 'passwordSetting'])->name('passwordSetting');
+
+    /* Wishlist controller */
+
+    Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::get('/wishlist-data', [WishlistController::class, 'getWishlist']);
+    Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 });
 
 

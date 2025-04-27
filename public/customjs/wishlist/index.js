@@ -3,6 +3,7 @@
 
 $(document).ready(function () {
     getWishlist();
+
 });
 
 
@@ -108,6 +109,9 @@ function getWishlist(){
 
         }
     });
+
+
+   
 
 }
 
