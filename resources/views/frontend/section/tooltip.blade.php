@@ -46,10 +46,13 @@ $course_category = getCourseCategories();
                             @endforeach
 
                         </ul>
-                        
+
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="#" class="btn theme-btn flex-grow-1 mr-3"><i
-                                    class="la la-shopping-cart mr-1 fs-18"></i> Add to Cart</a>
+                            
+                            <button type="button" class="btn theme-btn w-100 mb-2 add-to-cart-btn" data-course-id="{{ $course->id }}">
+                                <i class="la la-shopping-cart fs-18 mr-1"></i> Add to cart
+                            </button>
+
                             <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist">
                                 <i class="la la-heart-o"></i>
                             </div>

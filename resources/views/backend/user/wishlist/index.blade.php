@@ -25,7 +25,4 @@
     @endif
 @endsection
 
-@push('scripts')
-    <!-- Script inclusion -->
-   <script src="{{asset('customjs/user/wishlist.js')}}"></script>
-@endpush
+

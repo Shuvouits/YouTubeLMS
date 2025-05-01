@@ -209,6 +209,13 @@ $categories = getCategories();
                             </div><!-- end wishlist -->
 
 
+                            <div class="shop-cart mr-4" id='cart'>
+
+                                <!--ajax loaded for cart frontend.pages.home.partial.cart  -->
+
+                            </div><!-- end shop-cart -->
+
+
 
 
 

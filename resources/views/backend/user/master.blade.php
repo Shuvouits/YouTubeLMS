@@ -19,7 +19,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-     @include('backend.user.section.link')
+    @include('backend.user.section.link')
 
     <!-- end inject -->
 </head>
@@ -96,3 +96,5 @@
 </body>
 
 </html>
+
+

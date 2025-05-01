@@ -15,6 +15,7 @@ use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserProfileController;
+use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\frontend\WishlistController;
 use App\Http\Controllers\LectureController;
@@ -116,6 +117,13 @@ Route::get('/course-details/{slug}', [FrontendDashboardController::class, 'view'
 
 Route::get('/wishlist/all', [WishlistController::class, 'allWishlist']);
 Route::post('/wishlist/add', [WishlistController::class, 'addToWishlist']);
+
+/* Cart Controller */
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart/all', [CartController::class, 'cartAll']);
+Route::get('/fetch/cart', [CartController::class, 'fetchCart']);
+Route::post('/remove/cart', [CartController::class, 'removeCart']);
 
 
 
