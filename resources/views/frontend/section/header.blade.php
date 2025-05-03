@@ -151,7 +151,7 @@ $categories = getCategories();
 
                                     </li>
                                     <li>
-                                        <a href="#">Cart</a>
+                                        <a href="{{ route('cart') }}">Cart</a>
 
                                     </li>
 

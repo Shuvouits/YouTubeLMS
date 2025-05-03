@@ -11,11 +11,13 @@ use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserProfileController;
 use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\frontend\WishlistController;
 use App\Http\Controllers\LectureController;
@@ -125,6 +127,21 @@ Route::get('/cart/all', [CartController::class, 'cartAll']);
 Route::get('/fetch/cart', [CartController::class, 'fetchCart']);
 Route::post('/remove/cart', [CartController::class, 'removeCart']);
 
+
+/*  Checkout */
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+
+/* Auth Protected Route */
+
+Route::middleware('auth')->group(function () {
+
+    /* Order  */
+    Route::post('/order', [OrderController::class, 'order'])->name('order');
+    Route::get('/payment-success', [OrderController::class, 'success'])->name('success');
+    Route::get('/payment-cancel', [OrderController::class, 'cancel'])->name('cancel');
+    //Route::resource('rating', RatingController::class);
+});
 
 
 
