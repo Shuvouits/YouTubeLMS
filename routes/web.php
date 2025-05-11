@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InstructorController;
@@ -85,6 +86,8 @@ Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')
     Route::resource('course-section', CourseSectionController::class);
 
     Route::resource('lecture', LectureController::class);
+
+    Route::resource('coupon', CouponController::class);
 });
 
 
