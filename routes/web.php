@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
@@ -64,6 +65,18 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     Route::resource('instructor', AdminInstructorController::class);
     Route::post('/update-status', [AdminInstructorController::class, 'updateStatus'])->name('instructor.status');
     Route::get('/instructor-active-list', [AdminInstructorController::class, 'instructorActive'])->name('instructor.active');
+
+    /*  Setting Controller */
+    Route::get('/mail-setting', [SettingController::class, 'mailSetting'])->name('mailSetting');
+    Route::post('/mail-settings/update', [SettingController::class, 'updateMailSettings'])->name('mail.settings.update');
+
+    Route::get('/stripe-setting', [SettingController::class, 'stripeSetting'])->name('stripeSetting');
+    Route::post('/stripe-settings/update', [SettingController::class, 'updateStripeSettings'])->name('stripe.settings.update');
+
+    Route::get('/google-setting', [SettingController::class, 'googleSetting'])->name('googleSetting ');
+    Route::post('/google-settings/update', [SettingController::class, 'updateGoogleSettings'])->name('google.settings.update');
+
+
 });
 
 
@@ -133,6 +146,8 @@ Route::post('/remove/cart', [CartController::class, 'removeCart']);
 
 /*  Checkout */
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+/* Coupon Apply    */
+Route::post('/apply-coupon', [CouponController::class, 'applyCoupon']);
 
 
 /* Auth Protected Route */

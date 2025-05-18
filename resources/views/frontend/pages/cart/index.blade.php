@@ -11,7 +11,5 @@
 @endsection
 
 @push('scripts')
-
-
     <script src="{{asset('customjs/cart/index.js')}}"></script>
 @endpush
