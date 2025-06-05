@@ -55,7 +55,40 @@
             </ul>
         </li>
 
-        <li class="{{ setSidebar(['admin.slider*']) }}">
+
+        <li class="{{ setSidebar(['admin.course*']) }}">
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Manage Course</div>
+            </a>
+            <ul>
+                <li class="{{ setSidebar(['admin.course*']) }}">
+                    <a href="{{route('admin.course.index')}}"><i class='bx bx-radio-circle'></i>All Courses</a>
+                </li>
+
+
+            </ul>
+        </li>
+
+         <li class="{{ setSidebar(['admin.order*']) }}">
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Manage Order</div>
+            </a>
+            <ul>
+                <li class="{{ setSidebar(['admin.order*']) }}">
+                    <a href="{{route('admin.order.index')}}"><i class='bx bx-radio-circle'></i>All Orders</a>
+                </li>
+
+
+            </ul>
+        </li>
+
+
+
+        <li class="{{ setSidebar(['admin.slider*', 'admin.info*', 'admin.partner*', 'admin.subscriber*', 'admin.site-setting*', 'admin.page-setting*']) }}">
             <a href="javascript:;" class="has-arrow">
 
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -77,11 +110,13 @@
         </li>
 
 
+
+
          <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Configuration Setting</div>
+                <div class="menu-title">Config Setting</div>
             </a>
             <ul>
 

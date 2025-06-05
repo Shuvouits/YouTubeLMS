@@ -4,8 +4,10 @@ use App\Http\Controllers\admin\InfoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\AdminCourseController;
 use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
+use App\Http\Controllers\backend\BackendOrderController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\CourseController;
@@ -57,6 +59,14 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
     /* Control Slider */
     Route::resource('slider', SliderController::class);
+
+     /* control Course  */
+
+    Route::resource('course', AdminCourseController::class);
+    Route::post('/course-status', [AdminCourseController::class, 'courseStatus'])->name('course.status');
+
+    /*  order controller  */
+    Route::resource('order', BackendOrderController::class);
 
     /* Mange Info */
     Route::resource('info', InfoController::class);
