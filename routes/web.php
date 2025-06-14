@@ -25,13 +25,17 @@ use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\frontend\WishlistController;
 use App\Http\Controllers\LectureController;
-
-
+use App\Http\Controllers\SocialController;
 
 /*
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); */
+
+/*  Google Route  */
+
+Route::get('/auth/google', [SocialController::class, 'googleLogin'])->name('auth.google');
+Route::get('/auth/google-callback', [SocialController::class, 'googleAuthentication'])->name('auth.google-callback');
 
 
 
@@ -85,6 +89,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
     Route::get('/google-setting', [SettingController::class, 'googleSetting'])->name('googleSetting ');
     Route::post('/google-settings/update', [SettingController::class, 'updateGoogleSettings'])->name('google.settings.update');
+
 
 
 });

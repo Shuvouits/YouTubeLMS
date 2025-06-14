@@ -25,10 +25,10 @@
 
         <hr />
 
-        <div class="row">
+        <div class="row align-items-stretch">
             <div class="col-md-6">
 
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-body">
 
                         <div style="display:flex; align-items:center; justify-content: flex-start; gap: 15px">
@@ -59,7 +59,7 @@
 
             <div class="col-md-6">
 
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-body">
 
                         <div style="display:flex; align-items:center; justify-content: flex-start; gap: 15px">
@@ -89,7 +89,7 @@
 
         </div>
 
-        <div>
+        <div class="mt-5">
             <div class="card">
                 <div class="card-body">
 

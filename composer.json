@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.31",
+        "laravel/socialite": "^5.21",
         "laravel/tinker": "^2.9",
         "stripe/stripe-php": "16.4"
     },
