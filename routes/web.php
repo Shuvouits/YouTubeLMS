@@ -15,6 +15,7 @@ use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\PartnerController;
 use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
@@ -89,6 +90,10 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
     Route::get('/google-setting', [SettingController::class, 'googleSetting'])->name('googleSetting ');
     Route::post('/google-settings/update', [SettingController::class, 'updateGoogleSettings'])->name('google.settings.update');
+
+     /* Manage Partner  */
+
+    Route::resource('partner', PartnerController::class);
 
 
 
