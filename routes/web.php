@@ -17,6 +17,7 @@ use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\PartnerController;
 use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\SiteSettingController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\backend\UserController;
@@ -94,6 +95,9 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
      /* Manage Partner  */
 
     Route::resource('partner', PartnerController::class);
+
+     /* Manage Site Seetings */
+    Route::resource('site-setting', SiteSettingController::class);
 
 
 

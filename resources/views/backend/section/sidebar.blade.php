@@ -109,6 +109,10 @@
                     <a href="{{route('admin.partner.index')}}"><i class='bx bx-radio-circle'></i>Manage Partner</a>
                 </li>
 
+                 <li class="{{ setSidebar(['admin.site-setting*']) }}">
+                    <a href="{{route('admin.site-setting.index')}}"><i class='bx bx-radio-circle'></i>Site Settings</a>
+                </li>
+
 
             </ul>
         </li>
